@@ -11,3 +11,218 @@ dinosaurs=# SELECT COUNT(id) FROM dinos;
 -------
    331
 (1 row)
+
+We want to open up our own version of Jurassic Park, but this time only with dinosaurs who are actually
+from the Jurassic period. Find all the dinosaurs from the Jurassic period.
+
+dinosaurs=# SELECT name, period FROM dinos WHERE period = 'Jurassic';
+        name         |  period
+---------------------+----------
+ Yuanmousaurus       | Jurassic
+ Yinlong             | Jurassic
+ Yingshanosaurus     | Jurassic
+ Yimenosaurus        | Jurassic
+ Yangchuanosaurus    | Jurassic
+ Yandusaurus         | Jurassic
+ Vulcanodon          | Jurassic
+ Tuojiangosaurus     | Jurassic
+ Torvosaurus         | Jurassic
+ Yunnanosaurus       | Jurassic
+ Sinraptor           | Jurassic
+ Stegosaurus         | Jurassic
+ Seismosaurus        | Jurassic
+ Segisaurus          | Jurassic
+ Scutellosaurus      | Jurassic
+ Scelidosaurus       | Jurassic
+ Saurophaganax       | Jurassic
+ Sarcosaurus         | Jurassic
+ Shunosaurus         | Jurassic
+ Rhoetosaurus        | Jurassic
+ Poekilopleuron      | Jurassic
+ Podokesaurus        | Jurassic
+ Piatnitzkysaurus    | Jurassic
+ Proceratosaurus     | Jurassic
+ Patagosaurus        | Jurassic
+ Pantydraco          | Jurassic
+ Datousaurus         | Jurassic
+ Ornitholestes       | Jurassic
+ Omeisaurus          | Jurassic
+ Nqwebasaurus        | Jurassic
+ Monolophosaurus     | Jurassic
+ Othnielia           | Jurassic
+ Megalosaurus        | Jurassic
+ Massospondylus      | Jurassic
+ Marshosaurus        | Jurassic
+ Mamenchisaurus      | Jurassic
+ Lufengosaurus       | Jurassic
+ Lophostropheus      | Jurassic
+ Lexovisaurus        | Jurassic
+
+ Jurassic Park was a huge success for us. Now we want to open up a sequel park: Cretaceous Park. This time though,
+ we're a little more organized, and we want to know how much space all these dinosaurs are going to take up.
+ Find the total sum length of all the dinosaurs from the Cretaceous period.
+
+ dinosaurs=# SELECT COUNT (name) FROM dinos where period = 'Cretaceous';
+ count
+-------
+   218
+(1 row)
+
+Great news! Our board of investors recently secured us a large island where we can put all the dinosaurs from
+both Jurassic Park and Cretaceous Park. This new park will be called Juraceous Park, which according to our
+focus groups really rolls off the tongue. Find all
+the dinosaurs from either the Jurassic OR Cretaceous periods,
+and order them by their species name alphabetically.
+
+dinosaurs=# SELECT name, period, species FROM dinos WHERE period = 'Jurassic' OR period = 'Cretaceous' ORDER BY species ASC;
+          name           |   period   |     species
+-------------------------+------------+------------------
+ Afrovenator             | Cretaceous | Abakensis
+ Spinosaurus             | Cretaceous | Aegyptiacus
+ Kentrosaurus            | Jurassic   | Aethiopicus
+ Deltadromeus            | Cretaceous | Agilis
+ Lophostropheus          | Jurassic   | Airelensis
+ Apatosaurus             | Jurassic   | Ajax
+ Dromaeosaurus           | Cretaceous | Albertensis
+ Styracosaurus           | Cretaceous | Albertensis
+ Becklespinax            | Cretaceous | Altispinax
+ Hypacrosaurus           | Cretaceous | Altispinus
+ Brachiosaurus           | Jurassic   | Altithorax
+ Struthiomimus           | Cretaceous | Altus
+ Dryosaurus              | Jurassic   | Altus
+ Leaellynasaura          | Cretaceous | Amicagraphica
+ Erlikosaurus            | Cretaceous | Andrewsi
+ Protoceratops           | Cretaceous | Andrewsi
+ Deinonychus             | Cretaceous | Antirrhopus
+ Centrosaurus            | Cretaceous | Apertus
+ Dryptosaurus            | Cretaceous | Aquilunguis
+ Jaxartosaurus           | Cretaceous | Aralensis
+ Lurdusaurus             | Cretaceous | Arenatus
+ Hylaeosaurus            | Cretaceous | Armatus
+ Stegosaurus             | Jurassic   | Armatus
+ Dacentrurus             | Jurassic   | Armatus
+ Shanag                  | Cretaceous | Ashile
+ Archaeornithomimus      | Cretaceous | Asiaticus
+ Ampelosaurus            | Cretaceous | Atacis
+ Acrocanthosaurus        | Cretaceous | Atokensis
+ Majungatholus           | Cretaceous | Atopus
+ Lophorhothon            | Cretaceous | Atopus
+ Neuquenosaurus          | Cretaceous | Australis
+ Struthiosaurus          | Cretaceous | Austriacus
+ Aegyptosaurus           | Cretaceous | Baharijensis
+ Elaphrosaurus           | Jurassic   | Bambergi
+ Datousaurus             | Jurassic   | Bashanensis
+ Tarbosaurus             | Cretaceous | Bataar
+ Chasmosaurus            | Cretaceous | Belli
+ Iguanodon               | Cretaceous | Bernissartensis
+ Marshosaurus            | Jurassic   | Bicentesimus
+
+ Saurischians are the "lizard hipped" order of dinosaurs, and one of the two main branches.
+ All carnivorous dinosaurs are Saurischians, but not all Saurischians are carnivorous.
+ Find all the dinosaurs from the t_order Saurischia that are Herbivorous.
+
+ dinosaurs=# SELECT name, t_order, diet FROM dinos WHERE t_order = 'Saurischia' AND diet ='Herbivorous';
+        name         |  t_order   |    diet
+---------------------+------------+-------------
+ Yuanmousaurus       | Saurischia | Herbivorous
+ Yimenosaurus        | Saurischia | Herbivorous
+ Vulcanodon          | Saurischia | Herbivorous
+ Supersaurus         | Saurischia | Herbivorous
+ Sonidosaurus        | Saurischia | Herbivorous
+ Seismosaurus        | Saurischia | Herbivorous
+ Saltasaurus         | Saurischia | Herbivorous
+ Rebbachisaurus      | Saurischia | Herbivorous
+ Quaesitosaurus      | Saurischia | Herbivorous
+ Shunosaurus         | Saurischia | Herbivorous
+ Rhoetosaurus        | Saurischia | Herbivorous
+ Plateosaurus        | Saurischia | Herbivorous
+ Pelorosaurus        | Saurischia | Herbivorous
+ Patagosaurus        | Saurischia | Herbivorous
+ Pantydraco          | Saurischia | Herbivorous
+ Paralititan         | Saurischia | Herbivorous
+ Datousaurus         | Saurischia | Herbivorous
+ Pleurocoelus        | Saurischia | Herbivorous
+ Opisthocoelicaudia  | Saurischia | Herbivorous
+ Omeisaurus          | Saurischia | Herbivorous
+ Nigersaurus         | Saurischia | Herbivorous
+ Neuquenosaurus      | Saurischia | Herbivorous
+ Nemegtosaurus       | Saurischia | Herbivorous
+ Mussaurus           | Saurischia | Herbivorous
+ Maxakalisaurus      | Saurischia | Herbivorous
+ Malawisaurus        | Saurischia | Herbivorous
+ Mamenchisaurus      | Saurischia | Herbivorous
+ Lufengosaurus       | Saurischia | Herbivorous
+ Magyarosaurus       | Saurischia | Herbivorous
+ Ligabuesaurus       | Saurischia | Herbivorous
+ Jobaria             | Saurischia | Herbivorous
+ Jingshanosaurus     | Saurischia | Herbivorous
+ Janenschia          | Saurischia | Herbivorous
+ Isisaurus           | Saurischia | Herbivorous
+ Hypselosaurus       | Saurischia | Herbivorous
+ Kotasaurus          | Saurischia | Herbivorous
+ Guaibasaurus        | Saurischia | Herbivorous
+
+ Dinosaur names are hard to remember. Find the shortest dinosaur, and rename it Shortie.
+
+ dinosaurs=# SELECT name, length from dinos ORDER BY length ASC;
+          name           | length
+-------------------------+--------
+ Liaoxiornis             |   0.08
+ Confuciusornis          |   0.25
+ Shanag                  |   0.45
+ Archaeopteryx           |    0.5
+ Microceratops           |    0.5
+ Shuvuuia                |    0.6
+ Micropachycephalosaurus |    0.6
+ Compsognathus           |   0.65
+ Microraptor             |    0.8
+ Gasparinisaura          |    0.8
+ Juravenator             |    0.8
+ Pisanosaurus            |    0.9
+ Podokesaurus            |    0.9
+
+dinosaurs=# UPDATE dinos SET name = 'Shortie' WHERE id = 160;
+UPDATE 1
+
+dinosaurs=# SELECT name, length, id from dinos ORDER BY length ASC;
+          name           | length | id
+-------------------------+--------+-----
+ Shortie                 |   0.08 | 160
+ Confuciusornis          |   0.25 | 250
+ Shanag                  |   0.45 |  59
+ Microceratops           |    0.5 | 139
+
+ It's the first day of Dino School, and we're doing roll call. Find the alphabetically
+ first dinosaur, so we can make sure they're present for class.
+
+ dinosaurs=# SELECT name FROM dinos ORDER BY name ASC LIMIT 3;
+     name
+---------------
+ Aardonyx
+ Abelisaurus
+ Achelousaurus
+(3 rows)
+
+Rename the five longest dinosaurs The Famous Five.
+
+dinosaurs=# SELECT name, id, length FROM dinos WHERE length IS NOT NULL ORDER BY length DESC LIMIT 5;
+      name       | id  | length
+-----------------+-----+--------
+ Seismosaurus    |  61 |     40
+ Supersaurus     |  38 |     35
+ Argentinosaurus | 299 |     35
+ Brachiosaurus   | 280 |     30
+ Paralititan     | 106 |     28
+(5 rows)
+
+dinosaurs=# UPDATE dinos SET name = 'The Famous Five' WHERE length <= 40 AND length > 27;
+UPDATE 5
+dinosaurs=# SELECT name, id, length FROM dinos WHERE length IS NOT NULL ORDER BY length DESC LIMIT 5;
+      name       | id  | length
+-----------------+-----+--------
+ The Famous Five |  61 |     40
+ The Famous Five |  38 |     35
+ The Famous Five | 299 |     35
+ The Famous Five | 280 |     30
+ The Famous Five | 106 |     28
+(5 rows)
